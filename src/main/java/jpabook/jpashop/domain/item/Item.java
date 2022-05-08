@@ -20,7 +20,7 @@ import lombok.Setter;
 @Getter
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "dtype")
-public abstract class Item {
+public class Item {
 
   @Id @GeneratedValue
   @Column(name = "item_id")
