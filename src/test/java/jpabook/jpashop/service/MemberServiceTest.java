@@ -3,10 +3,8 @@ package jpabook.jpashop.service;
 import static org.junit.jupiter.api.Assertions.*;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import jpabook.jpashop.domain.Member;
-import jpabook.jpashop.repository.MemberRepository;
-import org.assertj.core.api.Assertions;
+import jpabook.jpashop.repository.MemberRepositoryOld;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,7 +17,7 @@ class MemberServiceTest {
   @Autowired
   private MemberService memberService;
   @Autowired
-  private MemberRepository memberRepository;
+  private MemberRepositoryOld memberRepositoryOld;
   @Autowired
   private EntityManager em;
 
@@ -33,7 +31,7 @@ class MemberServiceTest {
     Long savedId = memberService.join(member);
 
     // then
-    assertEquals(member, memberRepository.findOne(savedId));
+    assertEquals(member, memberRepositoryOld.findOne(savedId));
   }
 
   @Test
